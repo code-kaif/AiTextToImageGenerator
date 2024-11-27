@@ -5,7 +5,9 @@ const connectDB = async () => {
     console.log("Database Connected");
   });
 
-  await mongoose.connect(`mongodb://127.0.0.1:27017/Imagify`);
+  await mongoose.connect(
+    "mongodb+srv://nodeapp:nodeapp@cluster0.c6s2l3o.mongodb.net/Imagify"
+  );
 };
 
 export default connectDB;
