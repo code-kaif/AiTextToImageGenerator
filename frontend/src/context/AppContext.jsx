@@ -11,7 +11,7 @@ const AppContextProvider = (props) => {
   const [showLogin, setShowLogin] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [credit, setCredit] = useState(false);
-  const backendUrl = "http://localhost:5000";
+  const backendUrl = "https://text-to-image-w60i.onrender.com";
   const REACT_RAZORPAY_KEY_ID = "rzp_test_EkHebaijoULPoN";
 
   const loadCreditsData = async () => {
