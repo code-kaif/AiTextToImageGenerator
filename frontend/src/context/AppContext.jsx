@@ -8,7 +8,7 @@ const AppContextProvider = (props) => {
   const [user, setUser] = useState(null);
   const [showLogin, setShowLogin] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("token"));
-  const backendUrl = "http://localhost:5000";
+  const backendUrl = "https://text-to-image-w60i.onrender.com";
 
   const logout = () => {
     localStorage.removeItem("token");
