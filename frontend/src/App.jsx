@@ -4,7 +4,6 @@ import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import { AppContext } from "./context/AppContext";
-import BuyCredits from "./pages/BuyCredits";
 import Home from "./pages/Home";
 import Result from "./pages/Result";
 import { ToastContainer } from "react-toastify";
@@ -19,7 +18,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/result" element={<Result />} />
-        {/* <Route path="/buy" element={<BuyCredits />} /> */}
       </Routes>
       <Footer />
     </div>

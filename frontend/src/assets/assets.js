@@ -7,8 +7,6 @@ import star_icon from "./star_icon.svg";
 import rating_star from "./rating_star.svg";
 import sample_img_1 from "./sample_img_1.png";
 import sample_img_2 from "./sample_img_2.png";
-import profile_img_1 from "./profile_img_1.png";
-import profile_img_2 from "./profile_img_2.png";
 import step_icon_1 from "./step_icon_1.svg";
 import step_icon_2 from "./step_icon_2.svg";
 import step_icon_3 from "./step_icon_3.svg";
@@ -18,6 +16,9 @@ import cross_icon from "./cross_icon.svg";
 import star_group from "./star_group.png";
 import credit_star from "./credit_star.svg";
 import profile_icon from "./profile_icon.png";
+import adi from "./adi.jpg";
+import kuldeep from "./kuldeep.jpg";
+import asad from "./asad.jpg";
 
 export const assets = {
   logo,
@@ -60,23 +61,23 @@ export const stepsData = [
 
 export const testimonialsData = [
   {
-    image: profile_img_1,
-    name: "Donald Jackman",
-    role: "Graphic Designer",
+    image: adi,
+    name: "Aditya Mudgal",
+    role: "Web Developer",
     stars: 5,
     text: `I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`,
   },
   {
-    image: profile_img_2,
-    name: "Richard Nelson",
-    role: "Content Creator",
+    image: kuldeep,
+    name: "Kuldeep Gupta",
+    role: "HTML Developer",
     stars: 4,
     text: `I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`,
   },
   {
-    image: profile_img_1,
-    name: "Donald Jackman",
-    role: " Graphic Designer",
+    image: asad,
+    name: "Mehboob Asad",
+    role: "Full stack Developer",
     stars: 5,
     text: `I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`,
   },
@@ -86,19 +87,19 @@ export const plans = [
   {
     id: "Basic",
     price: 10,
-    credits: 100,
+    credits: 10,
     desc: "Best for personal use.",
   },
   {
     id: "Advanced",
     price: 50,
-    credits: 500,
+    credits: 100,
     desc: "Best for business use.",
   },
   {
     id: "Business",
     price: 250,
-    credits: 5000,
+    credits: 1000,
     desc: "Best for enterprise use.",
   },
 ];

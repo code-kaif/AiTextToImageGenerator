@@ -1,33 +1,14 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
-  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [showLogin, setShowLogin] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("token"));
-  const [credit, setCredit] = useState(false);
   const backendUrl = "http://localhost:5000";
-  const REACT_RAZORPAY_KEY_ID = "rzp_test_EkHebaijoULPoN";
-
-  const loadCreditsData = async () => {
-    try {
-      const { data } = await axios.get(backendUrl + "/api/user/credits", {
-        headers: { token },
-      });
-      if (data.success) {
-        setCredit(data.creditBalance);
-        setUser(data.user);
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error(error.message);
-    }
-  };
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -43,14 +24,9 @@ const AppContextProvider = (props) => {
         { headers: { token } }
       );
       if (data.success) {
-        loadCreditsData();
         return data.resultImage;
       } else {
         toast.error(data.message);
-        loadCreditsData();
-        if (data.creditBalance === 0) {
-          navigate("/buy");
-        }
       }
     } catch (error) {
       console.log(error);
@@ -59,10 +35,15 @@ const AppContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (token) {
-      loadCreditsData();
+    const storedToken = localStorage.getItem("token");
+    const storedUser = localStorage.getItem("user"); // Retrieve user info
+    if (storedToken) {
+      setToken(storedToken);
+      if (storedUser) {
+        setUser(JSON.parse(storedUser)); // Set user state
+      }
     }
-  }, [token]);
+  }, []);
 
   const value = {
     user,
@@ -72,12 +53,8 @@ const AppContextProvider = (props) => {
     backendUrl,
     token,
     setToken,
-    credit,
-    setCredit,
-    loadCreditsData,
     logout,
     generateImage,
-    REACT_RAZORPAY_KEY_ID,
   };
   return (
     <AppContext.Provider value={value}>{props.children}</AppContext.Provider>

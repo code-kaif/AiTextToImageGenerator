@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { assets } from "../assets/assets";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
-  const { user, setShowLogin, logout, credit } = useContext(AppContext);
-  const navigate = useNavigate();
+  const { user, setShowLogin, logout } = useContext(AppContext);
   return (
     <div className="flex justify-between items-center py-4">
       <Link to={"/"}>
@@ -14,15 +13,6 @@ const Navbar = () => {
       <div>
         {user ? (
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* <button
-              onClick={() => navigate("/buy")}
-              className="flex items-center gap-2 bg-cyan-200 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700"
-            >
-              <img className="w-5" src={assets.credit_star} alt="" />
-              <p className="text-sm sm:text-sm font-medium text-gray-600">
-                Credit left : {credit}
-              </p>
-            </button> */}
             <p className="text-gray-600 pl-4">Hi, {user.name}</p>
             <div className=" relative group">
               <img
@@ -44,9 +34,6 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex items-center gap-2 sm:gap-5">
-            {/* <p onClick={() => navigate("/buy")} className=" cursor-pointer">
-              Pricing
-            </p> */}
             <button
               onClick={() => setShowLogin(true)}
               className="bg-zinc-800 text-white px-7 py-2 sm:px-10 duration-200 hover:bg-zinc-600 text-sm rounded-full"
